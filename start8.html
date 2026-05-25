@@ -1,1 +1,67 @@
-1
+1<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>start8 – System Loader</title>
+
+  <!-- STYLE -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS-KERNE -->
+  <script src="cube-core.js" defer></script>
+  <script src="verhandlung-core.js" defer></script>
+  <script src="action-core.js" defer></script>
+</head>
+
+<body>
+
+  <nav id="nav">
+    <a href="#cubes">Cubes</a>
+    <a href="#systemkern">System</a>
+    <a href="#non">NoN</a>
+    <a href="#block144">144</a>
+    <a href="#action">Action</a>
+  </nav>
+
+  <!-- CUBES -->
+  <section id="cubes">
+    <div class="cube" id="cube1">1</div>
+    <div class="cube" id="cube2">2</div>
+    <div class="cube" id="cube3">3</div>
+  </section>
+
+  <!-- SYSTEMKERN (BLOCK A) -->
+  <section id="systemkern" class="block">
+    <div class="label">Systemkern</div>
+    <h2>Trihundertvier‑NoN‑144</h2>
+    <p>Systemkern geladen über start8.</p>
+  </section>
+
+  <!-- NoN (BLOCK B) -->
+  <section id="non" class="block">
+    <div class="label">NoN‑Modus</div>
+    <h2>NoN – Übergangsmodus</h2>
+    <p>NoN‑Modus aktiv.</p>
+  </section>
+
+  <!-- 144 (BLOCK C) -->
+  <section id="block144" class="block">
+    <div class="label">144‑Kern</div>
+    <h2>144 – Stabilität</h2>
+    <p>144‑Kern aktiv.</p>
+  </section>
+
+  <!-- ACTION -->
+  <section id="action" class="block">
+    <h2>Action</h2>
+    <p id="status">Status: bereit</p>
+
+    <div class="action-buttons">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </div>
+  </section>
+
+</body>
+</html>
