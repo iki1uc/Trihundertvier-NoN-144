@@ -29,3 +29,10 @@ Ableitung (Zukunft / KI / Meta):
 Cube‑3 = Blick in die Zukunft der Zivilisation.
 Er zeigt, wohin Systeme streben – und was sie dafür benötigen.`;
 });
+
+// STATUS-MELDER FÜR CUBE-3
+window.cube_status["cube3"] = {
+  ok: true,
+  reason: "",
+  needs: []
+};
