@@ -1,4 +1,4 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -11,6 +11,9 @@
   <script src="cube-core.js" defer></script>
   <script src="verhandlung-core.js" defer></script>
   <script src="action-core.js" defer></script>
+
+  <!-- 4u.me -->
+  <script src="4u-core.js" defer></script> <!-- NEU -->
 </head>
 
 <body>
@@ -20,6 +23,7 @@
     <a href="#systemkern">System</a>
     <a href="#non">NoN</a>
     <a href="#block144">144</a>
+    <a href="#fouru">4u.me</a> <!-- NEU -->
     <a href="#action">Action</a>
   </nav>
 
@@ -30,25 +34,40 @@
     <div class="cube" id="cube3">3</div>
   </section>
 
-  <!-- SYSTEMKERN (BLOCK A) -->
+  <!-- SYSTEMKERN -->
   <section id="systemkern" class="block">
     <div class="label">Systemkern</div>
     <h2>Trihundertvier‑NoN‑144</h2>
     <p>Systemkern geladen über start8.</p>
   </section>
 
-  <!-- NoN (BLOCK B) -->
+  <!-- NoN -->
   <section id="non" class="block">
     <div class="label">NoN‑Modus</div>
     <h2>NoN – Übergangsmodus</h2>
     <p>NoN‑Modus aktiv.</p>
   </section>
 
-  <!-- 144 (BLOCK C) -->
+  <!-- 144 -->
   <section id="block144" class="block">
     <div class="label">144‑Kern</div>
     <h2>144 – Stabilität</h2>
     <p>144‑Kern aktiv.</p>
+  </section>
+
+  <!-- 4u.me – NEU -->
+  <section id="fouru" class="block">
+    <div class="label">4u.me – Echtzeit</div>
+    <h2>4u.me – Antwortmodul</h2>
+
+    <p>
+      4u.me erzeugt drei Ebenen aus einem einzigen Input:
+      ALT → EVO7 → EVO8.
+    </p>
+
+    <div class="code" id="fouru-output">
+      4u.me bereit.
+    </div>
   </section>
 
   <!-- ACTION -->
@@ -62,6 +81,16 @@
       <button id="reset">Reset</button>
     </div>
   </section>
+
+  <!-- 4u.me Live-Ausgabe – NEU -->
+  <script>
+    const out = fourU("start8.html aktiv");
+
+    document.getElementById("fouru-output").innerText =
+      "ALT:  " + out.alt + "\n" +
+      "EVO7: " + out.evo7 + "\n" +
+      "EVO8: " + out.evo8;
+  </script>
 
 </body>
 </html>
