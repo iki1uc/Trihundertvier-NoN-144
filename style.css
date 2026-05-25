@@ -1,57 +1,32 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #222;
-}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>start8 – ALL4ALL Hub</title>
 
-#nav {
-  background: #222;
-  padding: 10px;
-  display: flex;
-  gap: 20px;
-}
+  <link rel="stylesheet" href="non144.css">
+  <script src="all4all-engine.js" defer></script>
+</head>
 
-#nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
+<body>
 
-.block {
-  background: #fff;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+<div id="nav">
+  <a href="cube1.html">CUBE‑1</a>
+  <a href="cube2.html">CUBE‑2</a>
+  <a href="cube3.html">CUBE‑3</a>
+</div>
 
-.label {
-  font-size: 12px;
-  color: #666;
-  text-transform: uppercase;
-}
+<section class="block">
+  <div class="label">System</div>
+  <h2>ALL4ALL</h2>
+  <p>Startpunkt für alle Cubes.</p>
+</section>
 
-#cubes {
-  display: flex;
-  gap: 10px;
-  padding: 20px;
-}
+<section id="cubes">
+  <div class="cube">1</div>
+  <div class="cube">2</div>
+  <div class="cube">3</div>
+</section>
 
-.cube {
-  width: 60px;
-  height: 60px;
-  background: #ddd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 6px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.action-buttons button {
-  margin-right: 10px;
-  padding: 10px 20px;
-  font-size: 14px;
-}
+</body>
+</html>
