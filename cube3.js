@@ -78,33 +78,21 @@ export function cube3_run(input, vr = null, evo = null, all4allQuote = null) {
       ? "ALL4ALL: –"
       : "ALL4ALL: " + all4allQuote;
 
+  // shinePresent optional
+  let renderedInput = input;
+  if (typeof shinePresent === "function") {
+    renderedInput = shinePresent(input);
+  }
+
   out.textContent =
     "CUBE‑3 · " + mode + "\n" +
     "────────────────────────\n" +
-    shinePresent(input) + "\n\n" +
+    renderedInput + "\n\n" +
     vrLine + "\n" +
     evoLine + "\n" +
     all4allLine + "\n\n" +
     "META: " + quote;
 }
 
+// optional global
 window.cube3_run = cube3_run;
-// cube3.js
-// CUBE‑3 = Kopf / Meta / EVO8+VR / C4
-
-export function cube3_run(input, vr, evo8, all4allQuote) {
-  const el = document.getElementById("c4");
-  if (!el) return;
-
-  const lines = [];
-
-  lines.push("CUBE‑3 META");
-  lines.push("──────────");
-  lines.push("INPUT: " + String(input ?? ""));
-  lines.push("VR:    " + (vr == null ? "–" : JSON.stringify(vr)));
-  lines.push("EVO8:  " + (evo8 == null ? "–" : String(evo8)));
-  lines.push("A4A:   " + (all4allQuote == null ? "–" : String(all4allQuote)));
-
-  el.textContent = lines.join("\n");
-}
-
