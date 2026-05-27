@@ -1,63 +1,91 @@
-// CUBE‑3 – Meta / Zukunft / Synthese
+// CUBE‑3 – Vollversion (Meta / Zukunft / Synthese / VR / EVO / ALL4ALL / Masken)
 
-// Konfiguration: Ebenen, Modi, Sprüche
-const C3_CONFIG = {
-  modes: ["SCAN", "FUTURE", "META"],
+// 1. KONFIGURATION
+const C3 = {
+  modes: ["SCAN", "FUTURE", "META", "VR", "EVO", "ALL4ALL", "MASK"],
   quotes: {
     SCAN: [
       "Ich scanne deinen Zustand – ohne Urteil.",
-      "Alles, was ist, darf erst einmal einfach nur sein.",
       "Beobachtung ist der erste Akt von Klarheit."
     ],
     FUTURE: [
       "Zukunft ist kein Ort – sie ist eine Richtung.",
-      "Du musst nicht alles wissen, nur den nächsten ehrlichen Schritt.",
-      "Wenn du weiter siehst, musst du nicht schneller rennen."
+      "Der nächste Schritt ist immer klein – aber ehrlich."
     ],
     META: [
       "Du bist mehr als dein aktueller Zustand.",
-      "Systeme sind Spiegel – die Frage ist: Was willst du sehen?",
-      "Meta heißt nicht Abstand – sondern bewusste Nähe."
+      "Meta heißt bewusste Nähe, nicht Abstand."
+    ],
+    VR: [
+      "VR zeigt, ob das System offen oder geschützt ist.",
+      "Verhandlung ist ein Zustand, kein Befehl."
+    ],
+    EVO: [
+      "ALT → EVO7 → EVO8 – Entwicklung ist Bewegung.",
+      "EVO ist die Sprache der Veränderung."
+    ],
+    ALL4ALL: [
+      "Ordnung ist die leise Form von Intelligenz.",
+      "Gemeinschaft entsteht durch bewusste Entscheidungen."
+    ],
+    MASK: [
+      "[■■■ META‑MASKE ■■■]",
+      "[■■■ ZUKUNFTS‑MASKE ■■■]"
     ]
   }
 };
 
-let c3_state = {
+let C3_STATE = {
   lastInput: "",
   modeIndex: 0,
-  vr: null
+  vr: null,
+  evo: null,
+  all4allQuote: null
 };
 
-// Hilfsfunktion: zufälliges Element
+// Hilfsfunktion
 function pick(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Hauptfunktion: CUBE‑3 ausführen
-export function cube3_run(input, vr = null) {
+// 2. HAUPTFUNKTION
+export function cube3_run(input, vr = null, evo = null, all4allQuote = null) {
   const out = document.getElementById("c4");
   if (!out) return;
 
-  c3_state.lastInput = input;
-  c3_state.vr = vr;
+  C3_STATE.lastInput = input;
+  C3_STATE.vr = vr;
+  C3_STATE.evo = evo;
+  C3_STATE.all4allQuote = all4allQuote;
 
-  const mode = C3_CONFIG.modes[c3_state.modeIndex % C3_CONFIG.modes.length];
-  c3_state.modeIndex++;
+  const mode = C3.modes[C3_STATE.modeIndex % C3.modes.length];
+  C3_STATE.modeIndex++;
 
-  const quote = pick(C3_CONFIG.quotes[mode]);
+  const quote = pick(C3.quotes[mode]);
 
   const vrLine =
     vr === null
       ? "VR: – (neutral)"
-      : "VR: " + vr + (vr >= 1 ? " → Verhandlung offen" : " → Verhandlung blockiert");
+      : "VR: " + vr + (vr >= 1 ? " → offen" : " → blockiert");
+
+  const evoLine =
+    evo === null
+      ? "EVO: –"
+      : "EVO: " + evo;
+
+  const all4allLine =
+    all4allQuote === null
+      ? "ALL4ALL: –"
+      : "ALL4ALL: " + all4allQuote;
 
   out.textContent =
     "CUBE‑3 · " + mode + "\n" +
-    "────────────────────\n" +
+    "────────────────────────\n" +
     shinePresent(input) + "\n\n" +
     vrLine + "\n" +
+    evoLine + "\n" +
+    all4allLine + "\n\n" +
     "META: " + quote;
 }
 
-// optional global
 window.cube3_run = cube3_run;
