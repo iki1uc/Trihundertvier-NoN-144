@@ -42,4 +42,3 @@ window.live_respo = function() {
 window.live_name = function() {
     return "CUBE‑LIVE#SHIFT2026";
 };
-
