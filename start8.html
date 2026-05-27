@@ -14,6 +14,9 @@
 
   <!-- 4u.me -->
   <script src="4u-core.js" defer></script>
+
+  <!-- CUBE‑3 -->
+  <script type="module" src="cube3.js"></script>
 </head>
 
 <body>
@@ -66,7 +69,6 @@
     </p>
 
     <div class="code" id="fouru-output">
-      <!-- ALT wird automatisch überschrieben -->
       4u.me bereit.
     </div>
   </section>
@@ -83,14 +85,33 @@
     </div>
   </section>
 
-  <!-- 4u.me Live-Ausgabe – NEU (muss GANZ UNTEN stehen!) -->
-  <script>
+  <!-- CUBE‑3 OUTPUT (NEU) -->
+  <section id="cube3-block" class="block">
+    <div class="label">CUBE‑3 – Meta</div>
+    <h2>CUBE‑3</h2>
+    <pre id="c4">CUBE‑3 bereit.</pre>
+  </section>
+
+  <!-- 4u.me Live-Ausgabe + CUBE‑3 START -->
+  <script type="module">
+    import { cube3_run } from "./cube3.js";
+
+    // 4u.me ausführen
     const out = fourU("start8.html aktiv");
 
     document.getElementById("fouru-output").innerText =
       "ALT:  " + out.alt + "\n" +
       "EVO7: " + out.evo7 + "\n" +
       "EVO8: " + out.evo8;
+
+    // VR optional
+    let vr = null;
+    if (typeof berechneVR === "function") {
+      vr = berechneVR(1, 1, 1, 1);
+    }
+
+    // CUBE‑3 starten
+    cube3_run("start8.html aktiv", vr, out.evo8, null);
   </script>
 
 </body>
